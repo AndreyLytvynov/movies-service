@@ -5,7 +5,9 @@ import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
-    <Container maxW="1280px">
+    <Container
+      maxW={{ md: "container.md", lg: "container.lg", xl: "container.xl" }}
+    >
       <Header />
       <Outlet />
     </Container>

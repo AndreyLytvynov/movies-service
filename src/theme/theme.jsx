@@ -1,5 +1,7 @@
 import { extendTheme } from "@chakra-ui/react";
 import { buttonTheme } from "./components/buttons";
+import { inputTheme } from "./components/forms";
+import { linksTheme } from "./components/links";
 
 const breakpoints = {
   sm: "320px",
@@ -9,7 +11,7 @@ const breakpoints = {
 };
 
 const shadows = {
-  mainShadow: "7px 4px 14px rgba(49, 21, 4, 0.07)",
+  mainShadow: "2px 7px 10px -6px rgba(0, 0, 0, 0.63)",
   secondShadow: "7px 4px 14px rgba(0, 0, 0, 0.11)",
 };
 
@@ -35,7 +37,9 @@ const fonts = {
 };
 
 const components = {
+  Input: inputTheme,
   Button: buttonTheme,
+  Link: linksTheme,
 };
 
 const theme = extendTheme({

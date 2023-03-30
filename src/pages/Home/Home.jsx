@@ -1,12 +1,15 @@
 import React from "react";
-import PopularMovieList from "../../componets/PopularMovieList";
+import MovieList from "../../componets/MovieList";
 import { useGetMoviesQuery } from "../../redux/slice/movieSlice";
 
 const Home = () => {
   const { data } = useGetMoviesQuery();
-  console.log("dataRESULT", data);
 
-  return <>{data && <PopularMovieList movies={data?.results} />}</>;
+  return (
+    <div style={{ padding: "20px 0" }}>
+      {data && <MovieList movies={data?.results} />}
+    </div>
+  );
 };
 
 export default Home;

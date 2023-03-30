@@ -1,19 +1,23 @@
-import { Flex, Box } from "@chakra-ui/react";
-import React from "react";
 import { NavLink } from "react-router-dom";
+import { Flex, Link } from "@chakra-ui/react";
+import SearchForm from "./SearchForm";
 
 const Header = () => {
   return (
-    <Flex justify={"space-between"}>
-      <Box>
-        <NavLink to={"/"}>Home</NavLink>
-      </Box>
-      <Box>
-        <NavLink to={"/about"}>About</NavLink>
-      </Box>
-      <Box>
-        <NavLink to={"/movies"}>Movies</NavLink>
-      </Box>
+    <Flex alignItems={"center"}>
+      <Link as={NavLink} variant={"headerLink"} to={"/"}>
+        Popular
+      </Link>
+      <Link as={NavLink} variant={"headerLink"} to={"/movies"}>
+        Top Rating
+      </Link>
+      {/* <Link as={NavLink} variant={"headerLink"} to={"/about"}>
+        About
+      </Link> */}
+      {/* <Link as={NavLink} variant={"headerLink"} to={"/search"}>
+        Search
+      </Link> */}
+      <SearchForm />
     </Flex>
   );
 };
