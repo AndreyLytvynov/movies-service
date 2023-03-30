@@ -11,12 +11,16 @@ export const movieSlice = createApi({
 
   tagTypes: ["movies"],
   endpoints: (builder) => ({
-    getMovies: builder.query({
+    getPopularMovies: builder.query({
       query: () => `movie/popular?api_key=${KEY}`,
       providesTags: ["movies"],
     }),
     getTopMovies: builder.query({
       query: () => `movie/top_rated?api_key=${KEY}`,
+      providesTags: ["movies"],
+    }),
+    getNowPlayingMovies: builder.query({
+      query: () => `movie/now_playing?api_key=${KEY}`,
       providesTags: ["movies"],
     }),
     getMoviesById: builder.query({
@@ -33,10 +37,9 @@ export const movieSlice = createApi({
 
 export const {
   usePrefetch,
-  useGetMoviesQuery,
+  useGetNowPlayingMoviesQuery,
+  useGetPopularMoviesQuery,
   useGetMoviesByIdQuery,
   useGetTopMoviesQuery,
   useGetMoviesByNameQuery,
 } = movieSlice;
-
-// https://api.themoviedb.org/3/movie/top_rated?api_key=<<api_key>>&language=en-US&page=1

@@ -199,8 +199,6 @@ const authFormIcon = defineStyle({
   borderRadius: "full",
   width: { base: "30px", lg: "44px" },
   height: (theme) => {
-    console.log("aaaaa", theme);
-
     return { base: theme.blur.sm };
   },
   padding: () => ({ base: "7px", lg: "10px" }),

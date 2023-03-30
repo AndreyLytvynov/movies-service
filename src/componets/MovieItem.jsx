@@ -1,10 +1,11 @@
 import React from "react";
 import { Flex, Heading, Image } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const PopularMovieItem = ({ movie }) => {
+  const location = useLocation();
   return (
-    <Link to={`${movie.id}`}>
+    <Link to={`${movie.id}`} state={{ location }}>
       <Flex
         flexDirection={"column"}
         w={"300px"}
@@ -17,7 +18,11 @@ const PopularMovieItem = ({ movie }) => {
           {movie.original_title}
         </Heading>
         <Image
-          src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+          src={
+            movie.poster_path
+              ? `https://image.tmdb.org/t/p/w200${movie.poster_path}`
+              : "https://i.postimg.cc/MTBLYYMP/poster-not-available.jpg"
+          }
           alt={movie.title}
         />
       </Flex>

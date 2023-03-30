@@ -6,32 +6,33 @@ import {
   InputRightElement,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { useGetMoviesByNameQuery } from "../redux/slice/movieSlice";
 import { useNavigate } from "react-router-dom";
 
 function SearchForm() {
   const [name, setName] = useState("");
-  const { data } = useGetMoviesByNameQuery(name);
-
   const navigate = useNavigate();
 
+  localStorage.setItem("searchName", JSON.stringify(name));
+
   const onSubmit = (e) => {
-    console.log(data);
-    navigate("/search", { state: data });
+    e.preventDefault();
+    if (name.length === 0) return;
+    navigate("/search", { state: name });
   };
   return (
-    <InputGroup w={300} ml={"200px"} type="submit">
-      <InputRightElement pointerEvents="fill" onClick={onSubmit}>
+    <InputGroup as={"form"} w={300} ml={"200px"} onSubmit={onSubmit}>
+      <InputRightElement pointerEvents="fill">
         <IconButton
           aria-label="Search database"
           size={"sm"}
           icon={<SearchIcon />}
+          type="submit"
         />
       </InputRightElement>
       <Input
         variant={"search"}
         type="text"
-        placeholder="Film name"
+        placeholder="search"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />

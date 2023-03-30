@@ -1,18 +1,24 @@
 import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { useGetMoviesByIdQuery } from "../../redux/slice/movieSlice";
 
 const MovieDetails = () => {
   const { id } = useParams();
   const { data } = useGetMoviesByIdQuery(id);
 
-  console.log(data);
+  const location = useLocation();
+  const backLink = location.state?.location?.pathname ?? "/movies";
+
+  const name = JSON.parse(localStorage.getItem("searchName"));
 
   return (
     <>
       {data && (
         <Box>
+          <Link to={backLink} state={name}>
+            GO Back
+          </Link>
           <Flex>
             <Image
               src={`https://image.tmdb.org/t/p/w400${data.poster_path}`}
@@ -25,7 +31,7 @@ const MovieDetails = () => {
               <Text fontSize="md">Date Release: {data.release_date}</Text>
               <Text fontSize="md">Budget: {data.budget}</Text>
               <Text fontSize="md">
-                Countries: {data.production_countries[0].name}
+                Countries: {data.production_countries[0]?.name}
               </Text>
               <Flex>
                 Genres:

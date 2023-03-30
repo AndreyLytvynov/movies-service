@@ -1,9 +1,9 @@
 import React from "react";
 import MovieList from "../../componets/MovieList";
-import { useGetMoviesQuery } from "../../redux/slice/movieSlice";
+import { useGetNowPlayingMoviesQuery } from "../../redux/slice/movieSlice";
 
-const Home = () => {
-  const { data } = useGetMoviesQuery();
+const NowPlaying = () => {
+  const { data } = useGetNowPlayingMoviesQuery();
 
   return (
     <div style={{ padding: "20px 0" }}>
@@ -12,4 +12,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default NowPlaying;

@@ -5,18 +5,16 @@ import SearchForm from "./SearchForm";
 const Header = () => {
   return (
     <Flex alignItems={"center"}>
-      <Link as={NavLink} variant={"headerLink"} to={"/"}>
+      <Link as={NavLink} variant={"headerLink"} to={"/popular"}>
         Popular
       </Link>
-      <Link as={NavLink} variant={"headerLink"} to={"/movies"}>
+      <Link as={NavLink} variant={"headerLink"} to={"/top-rating"}>
         Top Rating
       </Link>
-      {/* <Link as={NavLink} variant={"headerLink"} to={"/about"}>
-        About
-      </Link> */}
-      {/* <Link as={NavLink} variant={"headerLink"} to={"/search"}>
-        Search
-      </Link> */}
+      <Link as={NavLink} variant={"headerLink"} to={"/now-playing"}>
+        Now Playing
+      </Link>
+
       <SearchForm />
     </Flex>
   );
