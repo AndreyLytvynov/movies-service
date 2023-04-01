@@ -12,15 +12,19 @@ function SearchForm() {
   const [name, setName] = useState("");
   const navigate = useNavigate();
 
-  localStorage.setItem("searchName", JSON.stringify(name));
-
   const onSubmit = (e) => {
     e.preventDefault();
     if (name.length === 0) return;
     navigate("/search", { state: name });
   };
   return (
-    <InputGroup as={"form"} w={300} ml={"200px"} onSubmit={onSubmit}>
+    <InputGroup
+      as={"form"}
+      w={300}
+      ml={"100px"}
+      mr={"100px"}
+      onSubmit={onSubmit}
+    >
       <InputRightElement pointerEvents="fill">
         <IconButton
           aria-label="Search database"

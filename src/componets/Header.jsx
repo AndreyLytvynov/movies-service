@@ -14,8 +14,13 @@ const Header = () => {
       <Link as={NavLink} variant={"headerLink"} to={"/now-playing"}>
         Now Playing
       </Link>
-
       <SearchForm />
+      <Link as={NavLink} variant={"headerLink"} to={"/register"}>
+        Register
+      </Link>
+      <Link as={NavLink} variant={"headerLink"} to={"/login"}>
+        Login
+      </Link>
     </Flex>
   );
 };

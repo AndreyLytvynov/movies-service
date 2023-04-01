@@ -1,24 +1,21 @@
-import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import React from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
-import { useGetMoviesByIdQuery } from "../../redux/slice/movieSlice";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { useGetMoviesByIdQuery } from "../../redux/movieApi/movieSlice";
 
 const MovieDetails = () => {
   const { id } = useParams();
   const { data } = useGetMoviesByIdQuery(id);
 
-  const location = useLocation();
-  const backLink = location.state?.location?.pathname ?? "/movies";
+  const navigate = useNavigate();
 
-  const name = JSON.parse(localStorage.getItem("searchName"));
+  const goBack = () => navigate(-1);
 
   return (
     <>
       {data && (
         <Box>
-          <Link to={backLink} state={name}>
-            GO Back
-          </Link>
+          <Button onClick={goBack}>NAZAD</Button>
           <Flex>
             <Image
               src={`https://image.tmdb.org/t/p/w400${data.poster_path}`}

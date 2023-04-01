@@ -1,5 +1,5 @@
 import React from "react";
-import { useGetTopMoviesQuery } from "../../redux/slice/movieSlice";
+import { useGetTopMoviesQuery } from "../../redux/movieApi/movieSlice";
 import MovieList from "../../componets/MovieList";
 import { Box } from "@chakra-ui/react";
 

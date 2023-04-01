@@ -1,6 +1,6 @@
 import React from "react";
 import MovieList from "../../componets/MovieList";
-import { useGetNowPlayingMoviesQuery } from "../../redux/slice/movieSlice";
+import { useGetNowPlayingMoviesQuery } from "../../redux/movieApi/movieSlice";
 
 const NowPlaying = () => {
   const { data } = useGetNowPlayingMoviesQuery();
