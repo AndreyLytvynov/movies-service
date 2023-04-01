@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import React from "react";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useGetMoviesByIdQuery } from "../../redux/movieApi/movieSlice";
 
 const MovieDetails = () => {

@@ -10,7 +10,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const [loginUser, { isLoading }] = useLoginUserMutation();
+  const [loginUser] = useLoginUserMutation();
   const [loginOut] = useLogOutUserMutation();
 
   const onLogout = async () => {
@@ -21,7 +21,7 @@ const Login = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data: res, error } = await loginUser({ email, password });
+      const { data: res } = await loginUser({ email, password });
       console.log(res);
       dispatch(login(res));
     } catch (error) {

@@ -7,12 +7,12 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const [registerUser, { isLoading }] = useRegisterUserMutation();
+  const [registerUser] = useRegisterUserMutation();
 
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data: res, error } = await registerUser({ email, password });
+      const { data: res } = await registerUser({ email, password });
       console.log(res);
       dispatch(register(res.token));
     } catch (error) {
