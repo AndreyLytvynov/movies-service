@@ -31,6 +31,7 @@ function SearchForm() {
           size={"sm"}
           icon={<SearchIcon />}
           type="submit"
+          color={"blackAlpha.500"}
         />
       </InputRightElement>
       <Input

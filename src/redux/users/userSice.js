@@ -11,12 +11,12 @@ const usersSlice = createSlice({
   initialState,
   reducers: {
     registration(state, { payload }) {
-      state.user = payload;
+      state.user = payload.user;
       state.token = payload.token;
       state.isLoggedIn = true;
     },
     login(state, { payload }) {
-      state.user = payload;
+      state.user = payload.user;
       state.token = payload.token;
       state.isLoggedIn = true;
     },

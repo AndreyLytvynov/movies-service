@@ -1,4 +1,12 @@
-import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Heading,
+  IconButton,
+  Image,
+  Text,
+} from "@chakra-ui/react";
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useGetMoviesByIdQuery } from "../../redux/movieApi/movieSlice";
@@ -7,6 +15,8 @@ import {
   useAddFavoriteMutation,
   useDeleteFavoriteMutation,
 } from "../../redux/movieCastomApi/movieCastomSlice";
+import { RiArrowGoBackFill } from "react-icons/ri";
+import { MdOutlineFavorite, MdOutlineFavoriteBorder } from "react-icons/md";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -16,8 +26,6 @@ const MovieDetails = () => {
   const { currentData } = useCurrentFavoriteQuery(id);
   const [addFavorite] = useAddFavoriteMutation();
   const [deleteFavorite] = useDeleteFavoriteMutation();
-
-  console.log(useCurrentFavoriteQuery(id));
 
   const addToFavorite = async () => {
     await addFavorite(data);
@@ -31,7 +39,9 @@ const MovieDetails = () => {
     <>
       {data && (
         <Box>
-          <Button onClick={goBack}>Go back</Button>
+          <IconButton onClick={goBack}>
+            <RiArrowGoBackFill color="black" />
+          </IconButton>
           <Flex>
             <Image
               src={`https://image.tmdb.org/t/p/w400${data.poster_path}`}
@@ -61,9 +71,13 @@ const MovieDetails = () => {
           </Flex>
           <Text fontSize="md">Date Release: {data.overview}</Text>
           {!currentData?.data ? (
-            <Button onClick={addToFavorite}>Add</Button>
+            <Button onClick={removeToFavorite} color={"blackAlpha.900"}>
+              <MdOutlineFavoriteBorder />
+            </Button>
           ) : (
-            <Button onClick={removeToFavorite}>Remove</Button>
+            <Button onClick={addToFavorite} color={"blackAlpha.900"}>
+              <MdOutlineFavorite />
+            </Button>
           )}
         </Box>
       )}

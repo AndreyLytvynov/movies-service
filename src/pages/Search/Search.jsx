@@ -8,11 +8,7 @@ const Search = () => {
   const { state } = useLocation();
   const { data } = useGetMoviesByNameQuery(state);
 
-  return (
-    <Box style={{ padding: "20px 0" }}>
-      {state && <MovieList movies={data?.results} />}
-    </Box>
-  );
+  return <Box>{state && <MovieList movies={data?.results} />}</Box>;
 };
 
 export default Search;

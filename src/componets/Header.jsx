@@ -1,9 +1,10 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { Flex, Link, Button, Box } from "@chakra-ui/react";
+import { Flex, Link, Box, Heading, IconButton } from "@chakra-ui/react";
 import SearchForm from "./SearchForm";
 import { useDispatch, useSelector } from "react-redux";
 import { useLogOutUserMutation } from "../redux/users/userApiSlice";
 import { logout } from "../redux/users/userSice";
+import { SlLogout } from "react-icons/sl";
 
 const Header = () => {
   const [loginOut] = useLogOutUserMutation();
@@ -13,11 +14,12 @@ const Header = () => {
     dispatch(logout());
     navigate("/login");
   };
-  const navigate = useNavigate();
 
-  const isLoggedIn = useSelector((state) => state.users.isLoggedIn);
+  const navigate = useNavigate();
+  const { isLoggedIn, user } = useSelector((state) => state.users);
+
   return (
-    <Flex alignItems={"center"} justifyContent={"space-between"}>
+    <Flex alignItems={"center"} justifyContent={"space-between"} p={"10px"}>
       {!isLoggedIn ? (
         <Flex justifyContent={"space-between"} w={"100%"} alignItems={"center"}>
           <Box>
@@ -48,10 +50,21 @@ const Header = () => {
           <Link as={NavLink} variant={"headerLink"} to={"/now-playing"}>
             Now Playing
           </Link>
+          <Link as={NavLink} variant={"headerLink"} to={"/personal"}>
+            My Favorite
+          </Link>
           <SearchForm />
-          <Button height={"48px"} onClick={onLogout}>
-            LogOut
-          </Button>
+          <Heading as="p" fontSize={"15px"}>
+            {user.email}
+          </Heading>
+          <IconButton
+            onClick={onLogout}
+            size={25}
+            bgColor={"inherit"}
+            _hover={{ backgroundColor: "inherit", color: "white" }}
+          >
+            <SlLogout size={25} />
+          </IconButton>
         </>
       )}
     </Flex>

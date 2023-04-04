@@ -41,12 +41,19 @@ const components = {
   Button: buttonTheme,
   Link: linksTheme,
 };
-
 const theme = extendTheme({
   colors,
   shadows,
   breakpoints,
   fonts,
   components,
+  styles: {
+    global: {
+      body: {
+        backgroundColor: "#1a202c",
+        color: "white",
+      },
+    },
+  },
 });
 export default theme;

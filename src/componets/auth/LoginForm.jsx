@@ -59,7 +59,7 @@ const LoginForm = () => {
       const { data: res } = await loginUser(data);
       dispatch(login(res));
       reset();
-      navigate("/popular");
+      navigate("/personal");
     } catch (error) {
       console.log(error);
     }
@@ -75,13 +75,18 @@ const LoginForm = () => {
       padding={"60px 80px"}
       flexDirection={"column"}
     >
-      <Heading variant={"authForm"} mx={"auto"} mb={"40px"}>
+      <Heading
+        variant={"authForm"}
+        mx={"auto"}
+        mb={"40px"}
+        color={"blackAlpha.900"}
+      >
         Login
       </Heading>
       <Stack gap={"16px"} w="100%" as="form" onSubmit={handleSubmit(onSubmit)}>
         <FormControl isInvalid={errors.email} position="relative">
           <Input
-            variant={"authForm"}
+            variant={"login"}
             placeholder={"Email"}
             {...register("email")}
           />
@@ -92,15 +97,13 @@ const LoginForm = () => {
         <FormControl isInvalid={errors.password} position="relative">
           <InputGroup>
             <Input
-              variant={"authForm"}
+              variant={"login"}
               placeholder={"Password"}
               type={show ? "text" : "password"}
               {...register("password")}
             />
             <InputRightElement>
               <IconButton
-                mt={{ base: "0", lg: "10px" }}
-                mr={"10px"}
                 variant={"authFormIcon"}
                 icon={show ? <BiShow /> : <BiHide />}
                 onClick={handleClick}
@@ -113,9 +116,10 @@ const LoginForm = () => {
         </FormControl>
 
         <Button
-          height={{ base: "44px", lg: "48px" }}
+          // height={{ base: "44px", lg: "48px" }}
           type="submit"
           isLoading={isLoading}
+          variant={"LoginBtn"}
         >
           Login
         </Button>
@@ -128,6 +132,7 @@ const LoginForm = () => {
         lineHeight={"16px"}
         display={"flex"}
         gap={"5px"}
+        color={"black"}
       >
         Do not have an account?
         <Link as={NavLink} to={"/register"} display={"flex"}>

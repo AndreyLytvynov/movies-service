@@ -59,7 +59,7 @@ const RegistrationForm = () => {
       const { data: res } = await registerUser(data);
       dispatch(registration(res));
       reset();
-      navigate("/popular");
+      navigate("/personal");
     } catch (error) {
       console.log(error);
     }
@@ -75,13 +75,18 @@ const RegistrationForm = () => {
       padding={"60px 80px"}
       flexDirection={"column"}
     >
-      <Heading variant={"authForm"} mx={"auto"} mb={"40px"}>
+      <Heading
+        variant={"authForm"}
+        mx={"auto"}
+        mb={"40px"}
+        color={"blackAlpha.900"}
+      >
         Registration
       </Heading>
       <Stack gap={"16px"} w="100%" as="form" onSubmit={handleSubmit(onSubmit)}>
         <FormControl isInvalid={errors.email} position="relative">
           <Input
-            variant={"authForm"}
+            variant={"login"}
             placeholder={"Email"}
             {...register("email")}
           />
@@ -92,15 +97,13 @@ const RegistrationForm = () => {
         <FormControl isInvalid={errors.password} position="relative">
           <InputGroup>
             <Input
-              variant={"authForm"}
+              variant={"login"}
               placeholder={"Password"}
               type={show ? "text" : "password"}
               {...register("password")}
             />
             <InputRightElement>
               <IconButton
-                mt={{ base: "0", lg: "10px" }}
-                mr={"10px"}
                 variant={"authFormIcon"}
                 icon={show ? <BiShow /> : <BiHide />}
                 onClick={handleClick}
@@ -111,13 +114,8 @@ const RegistrationForm = () => {
             {errors.password?.message}
           </FormErrorMessage>
         </FormControl>
-
-        <Button
-          height={{ base: "44px", lg: "48px" }}
-          type="submit"
-          isLoading={isLoading}
-        >
-          Login
+        <Button type="submit" variant="LoginBtn" isLoading={isLoading}>
+          Registration
         </Button>
       </Stack>
 
@@ -128,6 +126,7 @@ const RegistrationForm = () => {
         lineHeight={"16px"}
         display={"flex"}
         gap={"5px"}
+        color={"black"}
       >
         Do have account?
         <Link as={NavLink} to={"/login"} display={"flex"}>

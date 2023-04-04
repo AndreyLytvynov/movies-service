@@ -11,6 +11,7 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import PrivateRoute from "./componets/Routs/PrivatRout";
 import Home from "./pages/Home/Home";
+import Favorites from "./pages/Favorites/Favorites";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route element={<PrivateRoute />}>
+            <Route path="/personal" element={<Favorites />} />
+            <Route path="/personal/:id" element={<MovieDetails />} />
             <Route path="/popular" element={<Popular />} />
             <Route path="/popular/:id" element={<MovieDetails />} />
             <Route path="top-rating" element={<TopRating />} />

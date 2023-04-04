@@ -12,13 +12,14 @@ export const movieCustomApiSlice = createApi({
       return headers;
     },
   }),
-
+  keepUnusedDataFor: 5,
   tagTypes: ["movie"],
   endpoints: (builder) => ({
     getFavorite: builder.query({
       query: () => ({
         url: `favorites`,
       }),
+
       providesTags: ["movie"],
     }),
     addFavorite: builder.mutation({
