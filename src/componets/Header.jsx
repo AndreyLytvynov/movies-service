@@ -1,10 +1,11 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { Flex, Link, Box, Heading, IconButton } from "@chakra-ui/react";
-import SearchForm from "./SearchForm";
+import { Flex, Link, Box } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLogOutUserMutation } from "../redux/users/userApiSlice";
 import { logout } from "../redux/users/userSice";
-import { SlLogout } from "react-icons/sl";
+import DesktopNav from "./DesktopNav";
+import TabletNav from "./TabletNav";
+import MobileNav from "./MobileNav";
 
 const Header = () => {
   const [loginOut] = useLogOutUserMutation();
@@ -41,30 +42,9 @@ const Header = () => {
         </Flex>
       ) : (
         <>
-          <Link as={NavLink} variant={"headerLink"} to={"/popular"}>
-            Popular
-          </Link>
-          <Link as={NavLink} variant={"headerLink"} to={"/top-rating"}>
-            Top Rating
-          </Link>
-          <Link as={NavLink} variant={"headerLink"} to={"/now-playing"}>
-            Now Playing
-          </Link>
-          <Link as={NavLink} variant={"headerLink"} to={"/personal"}>
-            My Favorite
-          </Link>
-          <SearchForm />
-          <Heading as="p" fontSize={"15px"}>
-            {user.email}
-          </Heading>
-          <IconButton
-            onClick={onLogout}
-            size={25}
-            bgColor={"inherit"}
-            _hover={{ backgroundColor: "inherit", color: "white" }}
-          >
-            <SlLogout size={25} />
-          </IconButton>
+          <DesktopNav onLogout={onLogout} email={user.email} />
+          <TabletNav onLogout={onLogout} email={user.email} />
+          <MobileNav onLogout={onLogout} email={user.email} />
         </>
       )}
     </Flex>

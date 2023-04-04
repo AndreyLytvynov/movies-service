@@ -16,6 +16,21 @@ const search = defineStyle({
     },
   },
 });
+
+const searchMobile = defineStyle({
+  field: {
+    display: "flex",
+    lineHeight: "1.2",
+    letterSpacing: "0.04em",
+    color: "black",
+    border: "1px solid",
+    borderColor: "blackAlpha.400",
+    _focus: {
+      shadow: "mainShadow",
+    },
+  },
+});
+
 const login = defineStyle({
   field: {
     display: "flex",
@@ -37,6 +52,7 @@ const login = defineStyle({
 export const inputTheme = defineStyleConfig({
   variants: {
     search,
+    searchMobile,
     login,
   },
 });
