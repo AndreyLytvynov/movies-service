@@ -1,7 +1,6 @@
 import { defineStyle, defineStyleConfig } from "@chakra-ui/react";
 
 const headerLink = defineStyle({
-  //   color: "orange",
   marginRight: "15px",
   padding: "5px 10px",
   _hover: {

@@ -10,13 +10,12 @@ const usersSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    register(state, { payload }) {
+    registration(state, { payload }) {
       state.user = payload;
-      state.token = payload.accessToken;
+      state.token = payload.token;
       state.isLoggedIn = true;
     },
     login(state, { payload }) {
-      console.log("payload", payload);
       state.user = payload;
       state.token = payload.token;
       state.isLoggedIn = true;
@@ -28,5 +27,5 @@ const usersSlice = createSlice({
     },
   },
 });
-export const { register, login, logout } = usersSlice.actions;
+export const { registration, login, logout } = usersSlice.actions;
 export default usersSlice.reducer;
