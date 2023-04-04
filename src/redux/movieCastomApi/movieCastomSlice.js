@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const movieCustomApiSlice = createApi({
   reducerPath: "movieCustomApiSlice",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:3002/api/movie",
+    baseUrl: "https://movie-service.up.railway.app/api/movie",
     prepareHeaders: (headers, { getState }) => {
       const token = getState().users.token;
       if (token) {

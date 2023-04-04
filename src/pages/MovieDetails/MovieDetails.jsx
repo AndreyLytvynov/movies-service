@@ -66,17 +66,16 @@ const MovieDetails = () => {
                   );
                 })}
               </Flex>
-              {/* <Text fontSize="md">Countries: {data.genres}</Text> */}
             </Flex>
           </Flex>
           <Text fontSize="md">Date Release: {data.overview}</Text>
-          {!currentData?.data ? (
+          {currentData?.data ? (
             <Button onClick={removeToFavorite} color={"blackAlpha.900"}>
-              <MdOutlineFavoriteBorder />
+              <MdOutlineFavorite />
             </Button>
           ) : (
             <Button onClick={addToFavorite} color={"blackAlpha.900"}>
-              <MdOutlineFavorite />
+              <MdOutlineFavoriteBorder />
             </Button>
           )}
         </Box>
