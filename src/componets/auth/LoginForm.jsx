@@ -63,7 +63,7 @@ const LoginForm = () => {
       if (error) {
         return addToast({ message: error.data.status, type: "error" });
       }
-      addToast({ message: res.status, type: "success" });
+      addToast({ message: "You have successfully logged in", type: "success" });
 
       dispatch(login(res));
       reset();
