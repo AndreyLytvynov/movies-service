@@ -21,7 +21,7 @@ const TabletNav = ({ onLogout, email }) => {
       w={"100%"}
       alignItems={"center"}
     >
-      <Menu>
+      <Menu autoSelect={false}>
         <MenuButton aria-label="Options">
           <HamburgerIcon boxSize={7} />
         </MenuButton>

@@ -10,9 +10,10 @@ const PopularMovieItem = ({ movie }) => {
         flexDirection={"column"}
         w={"350px"}
         boxShadow={"mainShadow"}
-        _hover={{ transform: "scale(1.04)" }}
+        _hover={{ xl: { transform: "scale(1.04)" } }}
         borderRadius={"sm"}
         p={"10px"}
+        h={"565px"}
       >
         <Heading
           as="h1"

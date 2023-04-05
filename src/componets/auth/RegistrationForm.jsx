@@ -21,6 +21,7 @@ import {
 } from "@chakra-ui/react";
 import { BiShow, BiHide } from "react-icons/bi";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import Toast from "../../hooks/toast";
 
 const schema = yup.object().shape({
   email: yup
@@ -44,6 +45,7 @@ const RegistrationForm = () => {
   const [registerUser, { isLoading }] = useRegisterUserMutation();
   const navigate = useNavigate();
   const handleClick = () => setShow(!show);
+  const { addToast } = Toast();
 
   const {
     register,
@@ -56,15 +58,18 @@ const RegistrationForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      const { data: res } = await registerUser(data);
+      const { data: res, error } = await registerUser(data);
+      if (error) {
+        return addToast({ message: error.data.status, type: "error" });
+      }
+      addToast({ message: res.status, type: "success" });
       dispatch(registration(res));
       reset();
-      navigate("/personal");
+      navigate("/popular");
     } catch (error) {
       console.log(error);
     }
   };
-
   return (
     <Flex
       maxW={"608px"}

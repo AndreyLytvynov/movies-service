@@ -18,7 +18,12 @@ function SearchForm() {
     navigate("/search", { state: name });
   };
   return (
-    <InputGroup as={"form"} w={300} onSubmit={onSubmit}>
+    <InputGroup
+      as={"form"}
+      w={300}
+      onSubmit={onSubmit}
+      mb={{ base: "20px", lg: "0" }}
+    >
       <InputRightElement pointerEvents="fill">
         <IconButton
           aria-label="Search database"
@@ -31,7 +36,7 @@ function SearchForm() {
       <Input
         variant={{ base: "searchMobile", lg: "search" }}
         type="text"
-        placeholder="search"
+        placeholder="search movie"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />

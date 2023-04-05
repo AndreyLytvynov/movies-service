@@ -1,7 +1,5 @@
 import { Route, Routes, Navigate } from "react-router-dom";
-
 import Popular from "./pages/Popular/Popular";
-import About from "./pages/About/About";
 import Layout from "./componets/Layout";
 import TopRating from "./pages/TopRating/TopRating";
 import MovieDetails from "./pages/MovieDetails/MovieDetails";
@@ -33,7 +31,6 @@ function App() {
             <Route path="search" element={<Search />} />
             <Route path="search/:id" element={<MovieDetails />} />
           </Route>
-          <Route path="about" element={<About />} />
         </Route>
         <Route path="*" element={<Navigate to={"/popular"} replace />} />
       </Routes>

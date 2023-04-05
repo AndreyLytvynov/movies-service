@@ -10,6 +10,7 @@ import MobileNav from "./MobileNav";
 const Header = () => {
   const [loginOut] = useLogOutUserMutation();
   const dispatch = useDispatch();
+
   const onLogout = async () => {
     await loginOut();
     dispatch(logout());
@@ -26,9 +27,6 @@ const Header = () => {
           <Box>
             <Link as={NavLink} variant={"headerLink"} to={"/"}>
               Home
-            </Link>
-            <Link as={NavLink} variant={"headerLink"} to={"/about"}>
-              About
             </Link>
           </Box>
           <Box>

@@ -23,9 +23,30 @@ const LoginBtn = defineStyle({
   },
 });
 
+const goBack = defineStyle({
+  fontWeight: "200",
+  height: "10px",
+  fontSize: "15px",
+  _hover: {
+    textDecoration: "underline",
+  },
+});
+
+const addFavorites = defineStyle({
+  fontWeight: "200",
+  backgroundColor: "gray.700",
+  fontSize: "15px",
+  borderRadius: 0,
+  _hover: {
+    backgroundColor: "gray.600",
+  },
+});
+
 export const buttonTheme = defineStyleConfig({
   variants: {
     authFormIcon,
     LoginBtn,
+    goBack,
+    addFavorites,
   },
 });
