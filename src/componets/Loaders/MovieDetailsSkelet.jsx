@@ -3,11 +3,11 @@ import { Box, Flex, Skeleton, SkeletonText } from "@chakra-ui/react";
 const MovieDetailsSkelet = () => {
   return (
     <>
-      <Box position={"relative"} pb={"30px"}>
+      <Box position={"relative"} pb={"30px"} pt={"20px"}>
         <Flex flexDirection={{ base: "column", lg: "row" }} mb={"20px"}>
           <Skeleton
-            h={{ base: "600px", lg: "480px", xl: "640px" }}
-            w={"400px"}
+            h={{ base: "715px", lg: "480px", xl: "640px" }}
+            w={{ base: "100%", lg: " 450px" }}
           />
           <Flex
             w={600}

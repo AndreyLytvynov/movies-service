@@ -47,8 +47,9 @@ const MovieDetails = () => {
               <Image
                 src={`https://image.tmdb.org/t/p/w400${data.poster_path}`}
                 alt={data.original_title}
+                w={"450px"}
               />
-              <Flex flexDirection={"column"} w={{ base: " 400px", lg: "100%" }}>
+              <Flex flexDirection={"column"} w={"100%"}>
                 {currentData?.data ? (
                   <Button onClick={removeToFavorite} variant={"addFavorites"}>
                     <MdOutlineFavorite />
