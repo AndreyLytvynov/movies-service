@@ -19,21 +19,18 @@ const Home = () => {
         our site as your go-to destination for all things movies. Enjoy!
       </Text>
       <Text textIndent={"20px"}>
-        <Box>
-          To start using our service, registration is required. Don't worry,
-          it's quick and easy! Simply click on the
-          <Link to={"/register"} style={{ color: "#2b6cb0" }}>
-            &#xa0;Register
-          </Link>
-          &#xa0;or
-          <Link to={"/login"} style={{ color: "#2b6cb0" }}>
-            &#xa0;Login&#xa0;
-          </Link>
-          button and fill out the necessary information. Once you're registered,
-          you can start browsing our collection and adding movies to your
-          personal page. Thank you for choosing our site, and happy movie
-          watching!
-        </Box>
+        To start using our service, registration is required. Don't worry, it's
+        quick and easy! Simply click on the
+        <Link to={"/register"} style={{ color: "#2b6cb0" }}>
+          &#xa0;Register
+        </Link>
+        &#xa0;or
+        <Link to={"/login"} style={{ color: "#2b6cb0" }}>
+          &#xa0;Login&#xa0;
+        </Link>
+        button and fill out the necessary information. Once you're registered,
+        you can start browsing our collection and adding movies to your personal
+        page. Thank you for choosing our site, and happy movie watching!
       </Text>
     </Box>
   );
