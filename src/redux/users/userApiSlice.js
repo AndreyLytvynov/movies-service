@@ -20,22 +20,22 @@ export const userApiSlice = createApi({
         url: `auth/users/signup`,
         method: "POST",
         body: user,
-        providesTags: ["user"],
       }),
+      providesTags: ["user"],
     }),
     loginUser: builder.mutation({
       query: (user) => ({
         url: `auth/users/login`,
         method: "POST",
         body: user,
-        providesTags: ["user"],
       }),
+      providesTags: ["user"],
     }),
     logOutUser: builder.mutation({
       query: () => ({
         url: `auth/users/logout`,
-        providesTags: ["user"],
       }),
+      providesTags: ["user"],
     }),
   }),
 });

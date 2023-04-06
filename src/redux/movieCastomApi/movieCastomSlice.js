@@ -19,7 +19,6 @@ export const movieCustomApiSlice = createApi({
       query: () => ({
         url: `favorites`,
       }),
-
       providesTags: ["movie"],
     }),
     addFavorite: builder.mutation({
