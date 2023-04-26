@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const userApiSlice = createApi({
   reducerPath: "userApiSlice",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://movie-service.up.railway.app/api/",
+    baseUrl: "https://movie-service-api.vercel.app/api/",
     prepareHeaders: (headers, { getState }) => {
       const token = getState().users.token;
       if (token) {
