@@ -17,7 +17,7 @@ export const userApiSlice = createApi({
   endpoints: (builder) => ({
     registerUser: builder.mutation({
       query: (user) => ({
-        url: `auth/users/signup`,
+        url: `auth/users/register`,
         method: "POST",
         body: user,
       }),
